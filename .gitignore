@@ -1,0 +1,36 @@
+# Maven build output
+sample-java-app/target/
+
+# Maven wrapper files
+.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Java agent jars
+sample-java-app/opentelemetry-javaagent.jar
+
+# Environment files and secrets
+.env
+.env.*
+
+# Ignore compiled classes
+*.class
+
+# Ignore backup files
+*~
+
+# Ignore other common files
+*.swp 
