@@ -1,20 +1,24 @@
-# OpenTelemetry Collector Contrib Distro
+# OpenTelemetry Collector (Datadog Example)
 
-This distribution contains all the components from both the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) repository and the [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) repository. This distribution includes open source and vendor supported components.
+This project provides a simple setup for running the OpenTelemetry Collector with Datadog as the exporter.
 
-## Recommendation
+## Prerequisites
+- You must have a Datadog API key.
+- The `DD_API_KEY` environment variable must be set before starting the collector.
+- The `otelcol-contrib` binary must be installed and available in your PATH.
 
-As this distribution contains many components, it is a good starting point to try various configurations. However, when running in production, it is recommended to limit the collector to contain only the components necessary for an environment. Some reasons to do this:
+## Quick Start
 
-* reduce the size of the collector, reducing deployment times for the collector
-* improve the security of the collector by reducing the available attack surface area
+1. Set your Datadog API key in your environment:
+   ```sh
+   export DD_API_KEY=your_datadog_api_key_here
+   ```
 
-Building a [custom collector](https://opentelemetry.io/docs/collector/custom-collector/) can be achieved using the [OpenTelemetry Collector Builder](https://github.com/open-telemetry/opentelemetry-collector/tree/main/cmd/builder).
+2. Start the collector with the provided configuration:
+   ```sh
+   otelcol-contrib --config ./collector/otel-collector-config.yaml
+   ```
 
-## Components
-
-The full list of components is available in the [manifest](manifest.yaml)
-
-### Rules for Component Inclusion
-
-- Include all extensions at [Alpha stability](https://github.com/open-telemetry/opentelemetry-collector#alpha) or higher and pipeline components that have at least 1 signal at [Alpha stability](https://github.com/open-telemetry/opentelemetry-collector#alpha) or higher.
+## Configuration
+- The collector configuration is located at `collector/otel-collector-config.yaml`.
+- The config is set up to receive OTLP data and export traces, metrics, and logs to Datadog.
