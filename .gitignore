@@ -19,9 +19,6 @@ Thumbs.db
 # Logs
 *.log
 
-# Java agent jars
-sample-java-app/opentelemetry-javaagent.jar
-
 # Environment files and secrets
 .env
 .env.*
